@@ -29,7 +29,7 @@ const STEPS: Step[] = [
     target: '.inventory .grid',
     cooking: false,
     title: 'Your ingredients',
-    text: 'Tap an ingredient once for every piece you have. Long press to type an exact number. Swipe sideways for more.',
+    text: 'Tap an ingredient once for every piece you have. Long press to reset it to zero. Swipe sideways for more.',
   },
   {
     target: '.more',
@@ -52,6 +52,7 @@ const STEPS: Step[] = [
 ]
 
 const PAD = 8 // spotlight margin around the target
+const EDGE = 4 // the spotlight's frame stays this far inside the screen
 const MARGIN = 16 // text box distance from the screen edges and the spotlight
 
 const index = ref(0)
@@ -69,7 +70,13 @@ let frame = 0
 function track() {
   const el = step.value.target ? document.querySelector(step.value.target) : null
   const r = el?.getBoundingClientRect()
-  hole.value = r ? { x: r.left - PAD, y: r.top - PAD, w: r.width + 2 * PAD, h: r.height + 2 * PAD } : null
+  if (r) {
+    const x = Math.max(r.left - PAD, EDGE)
+    const y = Math.max(r.top - PAD, EDGE)
+    const right = Math.min(r.right + PAD, window.innerWidth - EDGE)
+    const bottom = Math.min(r.bottom + PAD, window.innerHeight - EDGE)
+    hole.value = { x, y, w: right - x, h: bottom - y }
+  } else hole.value = null
   place()
   frame = requestAnimationFrame(track)
 }

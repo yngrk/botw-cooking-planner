@@ -3,11 +3,10 @@ import { computed, ref, watch } from 'vue'
 import type { Ingredient } from '../data'
 import { categoryInfo } from '../data'
 import { iconUrl } from '../icons'
-import { addCount, count } from '../store'
+import { addCount, count, setCount } from '../store'
 import EffectIcon from './EffectIcon.vue'
 
 const props = defineProps<{ item: Ingredient }>()
-const emit = defineEmits<{ longpress: [id: string] }>()
 
 const n = computed(() => count(props.item.id))
 const restoresHearts = computed(() => Number(props.item.hp) > 0)
@@ -38,7 +37,8 @@ function onDown(e: PointerEvent) {
   pressTimer = window.setTimeout(() => (pressed.value = pressShown = true), PRESS_DELAY_MS)
   timer = window.setTimeout(() => {
     longPressed = true
-    emit('longpress', props.item.id)
+    // Long press resets the tile, like the hearts and stamina in the HUD.
+    setCount(props.item.id, 0)
   }, LONG_PRESS_MS)
 }
 
@@ -85,7 +85,7 @@ watch(n, () => bump.value++)
     class="slot"
     :class="{ owned: n > 0, pressed }"
     role="button"
-    :aria-label="`${item.nameEn}, ${n} owned`"
+    :aria-label="`${item.nameEn}, ${n} owned. Tap: one more, hold: reset`"
     @pointerdown="onDown"
     @pointermove="onMove"
     @pointerup="onUp"

@@ -4,11 +4,9 @@ import GoalBar from './components/GoalBar.vue'
 import GuidedTour from './components/GuidedTour.vue'
 import InventoryPanel from './components/InventoryPanel.vue'
 import PlanPanel from './components/PlanPanel.vue'
-import QuickCount from './components/QuickCount.vue'
 import StatusHud from './components/StatusHud.vue'
 import { state } from './store'
 
-const editing = ref<string | null>(null)
 
 // Two stops on one surface: the inventory, and below it the cooking section.
 // A vertical swipe jumps between them (like the sideways paging, no dragging).
@@ -149,7 +147,7 @@ onBeforeUnmount(() => observer?.disconnect())
   >
     <div ref="screens" class="screens">
       <StatusHud ref="status" class="status" />
-      <InventoryPanel class="inventory" @edit="editing = $event" />
+      <InventoryPanel class="inventory" />
       <section ref="cook" class="cook">
         <div ref="cookView" class="cook-view">
           <!-- "More" pages the whole section, goal bar included. -->
@@ -178,7 +176,6 @@ onBeforeUnmount(() => observer?.disconnect())
       <svg viewBox="0 0 56 24" aria-hidden="true"><path d="M28 22 2 2 28 9 54 2Z" /></svg>
     </button>
   </main>
-  <QuickCount :id="editing" @close="editing = null" />
   <GuidedTour v-if="!state.tourDone" @screen="cooking = $event" @done="state.tourDone = true" />
 </template>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { usePress } from '../press'
 import { DEFAULT_HEARTS, DEFAULT_STAMINA, MAX_HEARTS, MAX_STAMINA, state } from '../store'
 
@@ -13,47 +13,26 @@ const flashWheel = ref(-1)
 const heartFlashes = ref(0)
 const wheelFlashes = ref(0)
 
-// A tap shows how to undo it: a small hint, gone after a moment (or right away
-// once the user does hold to reset). It sits beside the stamina row for both,
-// since the hearts row can be nearly as wide as a phone screen.
-const TIP_MS = 2500
-const tip = ref(false)
-let tipTimer: number | undefined
-function showTip() {
-  tip.value = true
-  clearTimeout(tipTimer)
-  tipTimer = window.setTimeout(() => (tip.value = false), TIP_MS)
-}
-function hideTip() {
-  clearTimeout(tipTimer)
-  tip.value = false
-}
-onBeforeUnmount(() => clearTimeout(tipTimer))
-
 const heartPress = usePress(
   () => {
-    showTip()
     if (s.maxHearts >= MAX_HEARTS) return
     s.maxHearts++
     flashHeart.value = s.maxHearts
     heartFlashes.value++
   },
   () => {
-    hideTip()
     s.maxHearts = DEFAULT_HEARTS
     flashHeart.value = 0
   },
 )
 const staminaPress = usePress(
   () => {
-    showTip()
     if (s.maxStamina >= MAX_STAMINA) return
     s.maxStamina++
     flashWheel.value = Math.ceil(s.maxStamina / 5) - 1
     wheelFlashes.value++
   },
   () => {
-    hideTip()
     s.maxStamina = DEFAULT_STAMINA
     flashWheel.value = -1
   },
@@ -124,9 +103,6 @@ const wheelsLabel = computed(() => {
           />
         </svg>
       </button>
-      <Transition name="tip">
-        <p v-if="tip" class="tip" role="status">Long press to reset</p>
-      </Transition>
     </div>
   </header>
 </template>
@@ -135,6 +111,7 @@ const wheelsLabel = computed(() => {
 .hud {
   position: relative;
   z-index: 1; /* above the inventory's edge fade */
+  width: fit-content; /* only as wide as the hearts, so the tour's spotlight hugs them */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -150,31 +127,6 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
-}
-/* Small in-game style box beside the row that was tapped. */
-.tip {
-  margin: 0;
-  padding: 7px 12px;
-  border-radius: var(--frame-radius);
-  background: var(--frame-bg);
-  outline: var(--frame-width) solid var(--frame-line);
-  outline-offset: var(--frame-inset);
-  color: #f2f0e8;
-  font-size: 14px;
-  font-weight: 600;
-  white-space: nowrap;
-  pointer-events: none;
-}
-.tip-enter-active,
-.tip-leave-active {
-  transition:
-    opacity 0.25s,
-    translate 0.25s ease-out;
-}
-.tip-enter-from,
-.tip-leave-to {
-  opacity: 0;
-  translate: -6px 0;
 }
 .hearts {
   display: grid;

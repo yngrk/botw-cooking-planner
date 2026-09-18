@@ -4,8 +4,6 @@ import { INGREDIENTS } from '../data'
 import { clearInventory, state } from '../store'
 import IngredientTile from './IngredientTile.vue'
 
-defineEmits<{ edit: [id: string] }>()
-
 // Like the in-game Materials tab: pages of 5 × 4 slots, filled row by row, swiped sideways.
 const PER_PAGE = 20
 const pages = Array.from({ length: Math.ceil(INGREDIENTS.length / PER_PAGE) }, (_, p) =>
@@ -148,7 +146,7 @@ onMounted(syncNudge)
       <div ref="track" class="track">
         <div v-for="(page, p) in pages" :key="p" class="page">
           <div class="grid">
-            <IngredientTile v-for="i in page" :key="i.id" :item="i" @longpress="$emit('edit', $event)" />
+            <IngredientTile v-for="i in page" :key="i.id" :item="i" />
           </div>
         </div>
       </div>

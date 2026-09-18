@@ -14,6 +14,13 @@ const hasInventory = computed(() => Object.keys(state.inventory).length > 0)
 // Recomputes on every inventory tap; the search takes a few ms.
 const plan = computed<PlanStep[]>(() => planDishes(state.inventory, { ...s }))
 
+// During the tour, an empty list shows one example recipe instead, so the "Cooked"
+// button the tour points at is there to see. The tour overlay blocks every tap on it.
+const example = computed<PlanStep[]>(() =>
+  !state.tourDone && !plan.value.length ? planDishes({ apple: 5 }, { ...s, goal: 'hearts' }, 1) : [],
+)
+const steps = computed(() => (plan.value.length ? plan.value : example.value))
+
 const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.count).join()
 </script>
 
@@ -32,12 +39,12 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
     </div>
 
     <TransitionGroup name="step" tag="ol" class="steps">
-      <li v-for="(step, i) in plan" :key="stepKey(step)" class="step">
+      <li v-for="(step, i) in steps" :key="stepKey(step)" class="step">
         <img class="pic" :src="dishIconUrl(step.dish)" alt="" draggable="false" @error="($event.target as HTMLImageElement).style.visibility = 'hidden'" />
         <div class="head">
           <span class="times">{{ step.times }}×</span>
           <span class="name">{{ step.dish.nameEn }}</span>
-          <span v-if="i === 0" class="best">Best</span>
+          <span v-if="i === 0 && !example.length" class="best">Best</span>
         </div>
         <div class="ings">
           <span v-for="e in step.dish.entries" :key="e.item.id" class="ing" :title="e.item.nameEn">
@@ -60,7 +67,7 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
     </TransitionGroup>
 
     <!-- Nothing to cook: the game's failed dish, with what to do about it. -->
-    <div v-if="!plan.length" class="step empty">
+    <div v-if="!steps.length" class="step empty">
       <img class="pic" :src="dishIconUrl({ nameEn: 'Dubious Food', effect: null })" alt="" draggable="false" />
       <div class="head">
         <span class="name">Dubious Food</span>
