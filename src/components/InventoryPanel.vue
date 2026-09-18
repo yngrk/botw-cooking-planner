@@ -327,6 +327,12 @@ onMounted(syncNudge)
   place-items: center;
   transition: transform 0.28s var(--spring);
 }
+/* Slim arrows on phones still get a finger-sized hit area. */
+.arrow::before {
+  content: '';
+  position: absolute;
+  inset: 0 -8px;
+}
 .arrow svg {
   width: 24px;
   height: 56px;

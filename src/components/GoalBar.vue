@@ -31,6 +31,12 @@ const s = state.settings
   justify-content: center;
   gap: 8px;
 }
+/* Phones sideways: one row of twelve, so the recipes still get some height. */
+@media (max-height: 500px) and (orientation: landscape) {
+  .goals {
+    grid-template-columns: repeat(12, minmax(44px, 56px));
+  }
+}
 /* Same look as the inventory slots: dark, slightly transparent, inset border. */
 .goal {
   aspect-ratio: 1;

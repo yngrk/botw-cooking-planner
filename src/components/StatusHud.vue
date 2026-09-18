@@ -214,6 +214,17 @@ button {
   filter: drop-shadow(0 0 3px rgba(62, 226, 107, 0.55));
 }
 
+/* Phones sideways: the HUD sits beside the grid, so it stays narrow and the hint goes below. */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hearts {
+    grid-template-columns: repeat(5, 26px);
+  }
+  .row {
+    flex-wrap: wrap;
+    max-width: 180px;
+  }
+}
+
 /* In-game: the new heart fades in white, then the white turns red. */
 .heart.flash {
   animation: heart-in 0.7s ease-out;

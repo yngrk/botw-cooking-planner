@@ -142,7 +142,7 @@ onBeforeUnmount(() => observer?.disconnect())
     @wheel.passive="onWheel"
   >
     <div ref="screens" class="screens">
-      <StatusHud />
+      <StatusHud class="status" />
       <InventoryPanel class="inventory" @edit="editing = $event" />
       <section ref="cook" class="cook">
         <div ref="cookView" class="cook-view">
@@ -181,14 +181,20 @@ onBeforeUnmount(() => observer?.disconnect())
 }
 /*
  * Slot size: the largest square that fits 5 across (leaving room for the page
- * arrows) with the grid taking at most two thirds of the screen height. The
- * cooking section lines up with the grid.
+ * arrows and a peek at the neighbouring pages) with the grid taking at most two
+ * thirds of the screen height, and never more than what the HUD above and the
+ * "Cook" teaser below leave free. The cooking section lines up with the grid.
  */
 .screens {
   --gap: 14px;
   --arrow: 40px;
-  --grid-max-h: 66dvh;
-  --slot: min((100cqw - 4 * var(--gap) - 2 * var(--arrow) - 72px) / 5, (var(--grid-max-h) - 3 * var(--gap)) / 4);
+  --peek: 72px; /* total, both sides */
+  --hud-room: 250px; /* padding + HUD + gap above the grid, teaser below */
+  --grid-max-h: min(66dvh, 100dvh - var(--safe-top) - var(--safe-bottom) - var(--hud-room));
+  --slot: min(
+    (100cqw - 4 * var(--gap) - 2 * var(--arrow) - var(--peek)) / 5,
+    (var(--grid-max-h) - 3 * var(--gap)) / 4
+  );
   --grid-w: calc(5 * var(--slot) + 4 * var(--gap));
   container-type: inline-size;
   display: flex;
@@ -202,6 +208,38 @@ onBeforeUnmount(() => observer?.disconnect())
 }
 .inventory {
   flex: none;
+}
+
+/* Phones upright: width is what's short, so tighter gaps, slimmer arrows, less peek. */
+@media (max-width: 600px) {
+  .screens {
+    --gap: 8px;
+    --arrow: 28px;
+    --peek: 16px;
+    padding-left: calc(var(--safe-left) + 12px);
+    padding-right: calc(var(--safe-right) + 12px);
+  }
+}
+/*
+ * Phones sideways: height is what's short. The HUD moves up beside the grid
+ * (there's room left and right of it), leaving only the reset prompt above it.
+ */
+@media (max-height: 500px) and (orientation: landscape) {
+  .screens {
+    --gap: 10px;
+    --hud-room: 150px;
+  }
+  .status {
+    position: absolute;
+    top: calc(var(--safe-top) + 12px);
+    left: calc(var(--safe-left) + 16px);
+  }
+  .inventory {
+    margin-top: 44px; /* the reset prompt above the grid */
+  }
+  .screens .cook {
+    width: min(100%, 720px); /* the goals fit in one row here */
+  }
 }
 .screens > :not(.cook) {
   transition: opacity 0.3s;
