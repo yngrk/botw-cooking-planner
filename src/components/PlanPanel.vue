@@ -59,13 +59,20 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
       </li>
     </TransitionGroup>
 
-    <p v-if="!plan.length" class="hint">
-      {{
-        hasInventory
-          ? `Nothing you have cooks into “${goalLabel}”.`
-          : 'Tap the ingredients you have. The recipes show up here right away.'
-      }}
-    </p>
+    <!-- Nothing to cook: the game's failed dish, with what to do about it. -->
+    <div v-if="!plan.length" class="step empty">
+      <img class="pic" :src="dishIconUrl({ nameEn: 'Dubious Food', effect: null })" alt="" draggable="false" />
+      <div class="head">
+        <span class="name">Dubious Food</span>
+      </div>
+      <p class="hint">
+        {{
+          hasInventory
+            ? `Nothing you have cooks into “${goalLabel}”.`
+            : 'Tap the ingredients you have. The recipes show up here right away.'
+        }}
+      </p>
+    </div>
   </section>
 </template>
 
@@ -264,7 +271,14 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
   outline-color: var(--frame-line-on);
   box-shadow: var(--frame-glow);
 }
+.empty {
+  grid-template-columns: auto 1fr;
+  grid-template-areas: 'pic head' 'pic hint';
+  align-content: center;
+}
 .hint {
+  grid-area: hint;
+  align-self: start;
   color: rgba(255, 255, 255, 0.6);
   font-size: var(--fs-text);
   margin: 0;
