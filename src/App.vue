@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import GoalBar from './components/GoalBar.vue'
+import GuidedTour from './components/GuidedTour.vue'
 import InventoryPanel from './components/InventoryPanel.vue'
 import PlanPanel from './components/PlanPanel.vue'
 import QuickCount from './components/QuickCount.vue'
 import StatusHud from './components/StatusHud.vue'
+import { state } from './store'
 
 const editing = ref<string | null>(null)
 
@@ -172,6 +174,7 @@ onBeforeUnmount(() => observer?.disconnect())
     </button>
   </main>
   <QuickCount :id="editing" @close="editing = null" />
+  <GuidedTour v-if="!state.tourDone" @screen="cooking = $event" @done="state.tourDone = true" />
 </template>
 
 <style scoped>

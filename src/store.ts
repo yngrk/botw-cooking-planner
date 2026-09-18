@@ -21,6 +21,7 @@ interface State {
   recent: string[] // ids, most recently changed first
   selected: string | null // last tapped ingredient, shown in the info panel
   settings: Settings
+  tourDone: boolean // first-visit guided tour finished or skipped
 }
 
 const defaults = (): State => ({
@@ -28,6 +29,7 @@ const defaults = (): State => ({
   recent: [],
   selected: null,
   settings: { maxHearts: DEFAULT_HEARTS, maxStamina: DEFAULT_STAMINA, goal: 'hearts', allowRare: false, includeElixirs: true },
+  tourDone: false,
 })
 
 function load(): State {
