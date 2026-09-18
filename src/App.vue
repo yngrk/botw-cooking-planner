@@ -149,7 +149,7 @@ onBeforeUnmount(() => observer?.disconnect())
   >
     <div ref="screens" class="screens">
       <StatusHud ref="status" class="status" />
-      <InventoryPanel class="inventory" @edit="editing = $event" />
+      <InventoryPanel class="inventory" @edit="editing = $event" @tour="state.tourDone = false" />
       <section ref="cook" class="cook">
         <div ref="cookView" class="cook-view">
           <!-- "More" pages the whole section, goal bar included. -->
