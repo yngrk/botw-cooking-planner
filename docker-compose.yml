@@ -1,0 +1,12 @@
+# Local test of the production image.
+#   docker compose up --build   →   http://localhost:8000
+# Not the deploy path: Coolify builds the Dockerfile directly and does not use this file.
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: botw-cooking
+    ports:
+      - "8000:80"
+    restart: unless-stopped

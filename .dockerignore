@@ -1,0 +1,25 @@
+# Build artifacts & deps (rebuilt inside the image)
+node_modules
+dist
+
+# VCS & editor
+.git
+.gitignore
+.vscode
+.idea
+.claude
+
+# Docker / CI files (not needed in the build context)
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Docs (not part of the build)
+*.md
+docs
+
+# Local env & OS cruft
+.env
+.env.*
+.DS_Store
+npm-debug.log*

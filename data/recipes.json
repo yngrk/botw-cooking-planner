@@ -1,0 +1,3054 @@
+{
+ "recipes": [
+  {
+   "en": "Fairy Tonic",
+   "de": "Feenwasser",
+   "internal": "Item_Cook_C_16",
+   "hb": -12,
+   "slots": [
+    [
+     {
+      "id": "fairy"
+     }
+    ],
+    [
+     {
+      "tag": "CookOre"
+     }
+    ],
+    [
+     {
+      "tag": "CookInsect"
+     }
+    ],
+    [
+     {
+      "tag": "CookEnemy"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Fairy Tonic",
+   "de": "Feenwasser",
+   "internal": "Item_Cook_C_16",
+   "hb": -12,
+   "slots": [
+    [
+     {
+      "id": "fairy"
+     }
+    ],
+    [
+     {
+      "tag": "CookInsect"
+     }
+    ],
+    [
+     {
+      "tag": "CookEnemy"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Fairy Tonic",
+   "de": "Feenwasser",
+   "internal": "Item_Cook_C_16",
+   "hb": -12,
+   "slots": [
+    [
+     {
+      "id": "fairy"
+     }
+    ],
+    [
+     {
+      "tag": "CookOre"
+     },
+     {
+      "tag": "CookEnemy"
+     },
+     {
+      "tag": "CookInsect"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Rock-Hard Food",
+   "de": "Harter Brocken",
+   "internal": "Item_Cook_O_02",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookOre"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Elixir",
+   "de": "Medizin",
+   "internal": "Item_Cook_C_17",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookEnemy"
+     }
+    ],
+    [
+     {
+      "tag": "CookInsect"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Dubious Food",
+   "de": "Dubiose Matsche",
+   "internal": "Item_Cook_O_01",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookEnemy"
+     },
+     {
+      "tag": "CookInsect"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Fruitcake",
+   "de": "Obsttorte",
+   "internal": "Item_Cook_N_02",
+   "hb": 4,
+   "slots": [
+    [
+     {
+      "id": "apple"
+     },
+     {
+      "id": "wildberry"
+     }
+    ],
+    [
+     {
+      "id": "wildberry"
+     },
+     {
+      "id": "voltfruit"
+     },
+     {
+      "id": "hydromelon"
+     },
+     {
+      "id": "mighty-bananas"
+     },
+     {
+      "id": "hearty-durian"
+     },
+     {
+      "id": "palm-fruit"
+     },
+     {
+      "id": "apple"
+     }
+    ],
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "cane-sugar"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Seafood Paella",
+   "de": "Paella",
+   "internal": "Item_Cook_N_01",
+   "hb": 8,
+   "slots": [
+    [
+     {
+      "id": "mighty-porgy"
+     },
+     {
+      "id": "armored-porgy"
+     }
+    ],
+    [
+     {
+      "id": "hearty-blueshell-snail"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Monster Curry",
+   "de": "Monstercurry",
+   "internal": "Item_Cook_L_05",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "goron-spice"
+     }
+    ],
+    [
+     {
+      "id": "monster-extract"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Monster Rice Balls",
+   "de": "Monster-Reisbällchen",
+   "internal": "Item_Cook_L_04",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "id": "monster-extract"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Monster Cake",
+   "de": "Monsterkuchen",
+   "internal": "Item_Cook_L_03",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "cane-sugar"
+     }
+    ],
+    [
+     {
+      "id": "monster-extract"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Monster Soup",
+   "de": "Monstersuppe",
+   "internal": "Item_Cook_L_02",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ],
+    [
+     {
+      "id": "monster-extract"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Monster Stew",
+   "de": "Monstereintopf",
+   "internal": "Item_Cook_L_01",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "monster-extract"
+     }
+    ],
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Creamy Heart Soup",
+   "de": "Herzchensuppe",
+   "internal": "Item_Cook_F_04",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hearty-radish"
+     },
+     {
+      "id": "big-hearty-radish"
+     }
+    ],
+    [
+     {
+      "id": "voltfruit"
+     }
+    ],
+    [
+     {
+      "id": "hydromelon"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Clam Chowder",
+   "de": "Muschelsuppe",
+   "internal": "Item_Cook_K_04",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hearty-blueshell-snail"
+     }
+    ],
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Pumpkin Stew",
+   "de": "Kürbiseintopf",
+   "internal": "Item_Cook_K_03",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "fortified-pumpkin"
+     }
+    ],
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Gourmet Meat Stew",
+   "de": "Luxuseintopf",
+   "internal": "Item_Cook_K_05",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-gourmet-meat"
+     },
+     {
+      "id": "raw-whole-bird"
+     }
+    ],
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Prime Meat Stew",
+   "de": "Edeleintopf",
+   "internal": "Item_Cook_K_02",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-prime-meat"
+     },
+     {
+      "id": "raw-bird-thigh"
+     }
+    ],
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Meat Stew",
+   "de": "Fleischeintopf",
+   "internal": "Item_Cook_K_01",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-meat"
+     },
+     {
+      "id": "raw-bird-drumstick"
+     }
+    ],
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Gourmet Meat Curry",
+   "de": "Luxuswildcurry",
+   "internal": "Item_Cook_J_09",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-gourmet-meat"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "goron-spice"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Gourmet Poultry Curry",
+   "de": "Luxusgeflügelcurry",
+   "internal": "Item_Cook_J_08",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-whole-bird"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "goron-spice"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Prime Meat Curry",
+   "de": "Edelwildcurry",
+   "internal": "Item_Cook_J_07",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-prime-meat"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "goron-spice"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Prime Poultry Curry",
+   "de": "Edelgeflügelcurry",
+   "internal": "Item_Cook_J_05",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-bird-thigh"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "goron-spice"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Meat Curry",
+   "de": "Wildcurry",
+   "internal": "Item_Cook_J_06",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-meat"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "goron-spice"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Poultry Curry",
+   "de": "Geflügelcurry",
+   "internal": "Item_Cook_J_04",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-bird-drumstick"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "goron-spice"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Seafood Curry",
+   "de": "Fischcurry",
+   "internal": "Item_Cook_J_03",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hearty-blueshell-snail"
+     },
+     {
+      "id": "mighty-porgy"
+     },
+     {
+      "id": "armored-porgy"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "goron-spice"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Vegetable Curry",
+   "de": "Gemüsecurry",
+   "internal": "Item_Cook_J_02",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "fortified-pumpkin"
+     },
+     {
+      "id": "swift-carrot"
+     },
+     {
+      "id": "endura-carrot"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "goron-spice"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Pumpkin Pie",
+   "de": "Kürbiskuchen",
+   "internal": "Item_Cook_I_06",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "fortified-pumpkin"
+     }
+    ],
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "cane-sugar"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Carrot Cake",
+   "de": "Karottenkuchen",
+   "internal": "Item_Cook_I_05",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "swift-carrot"
+     },
+     {
+      "id": "endura-carrot"
+     }
+    ],
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "cane-sugar"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Wildberry Crepe",
+   "de": "Wildbeeren-Crêpe",
+   "internal": "Item_Cook_I_11",
+   "hb": 16,
+   "slots": [
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ],
+    [
+     {
+      "id": "bird-egg"
+     }
+    ],
+    [
+     {
+      "id": "cane-sugar"
+     }
+    ],
+    [
+     {
+      "id": "wildberry"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Honey Crepe",
+   "de": "Honig-Crêpe",
+   "internal": "Item_Cook_I_17",
+   "hb": 4,
+   "slots": [
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ],
+    [
+     {
+      "id": "bird-egg"
+     }
+    ],
+    [
+     {
+      "id": "cane-sugar"
+     }
+    ],
+    [
+     {
+      "id": "courser-bee-honey"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Plain Crepe",
+   "de": "Crêpe",
+   "internal": "Item_Cook_I_10",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ],
+    [
+     {
+      "id": "bird-egg"
+     }
+    ],
+    [
+     {
+      "id": "cane-sugar"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Apple Pie",
+   "de": "Apfelkuchen",
+   "internal": "Item_Cook_I_02",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "apple"
+     }
+    ],
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ],
+    [
+     {
+      "id": "cane-sugar"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Nutcake",
+   "de": "Nusskuchen",
+   "internal": "Item_Cook_I_12",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ],
+    [
+     {
+      "id": "cane-sugar"
+     }
+    ],
+    [
+     {
+      "id": "chickaloo-tree-nut"
+     },
+     {
+      "id": "acorn"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Egg Tart",
+   "de": "Eiertorte",
+   "internal": "Item_Cook_I_03",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "bird-egg"
+     }
+    ],
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ],
+    [
+     {
+      "id": "cane-sugar"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Egg Pudding",
+   "de": "Eierpudding",
+   "internal": "Item_Cook_I_14",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "bird-egg"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ],
+    [
+     {
+      "id": "cane-sugar"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Fried Bananas",
+   "de": "Bratbanane",
+   "internal": "Item_Cook_I_13",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "mighty-bananas"
+     }
+    ],
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "cane-sugar"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Fruit Pie",
+   "de": "Obstkuchen",
+   "internal": "Item_Cook_I_01",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ],
+    [
+     {
+      "id": "cane-sugar"
+     }
+    ],
+    [
+     {
+      "tag": "CookFruit"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Meat Pie",
+   "de": "Fleischpastete",
+   "internal": "Item_Cook_I_04",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Fish Pie",
+   "de": "Fischpastete",
+   "internal": "Item_Cook_I_15",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Salmon Meunière",
+   "de": "Knusperlachs",
+   "internal": "Item_Cook_H_03",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hearty-salmon"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ],
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Salmon Risotto",
+   "de": "Lachsrisotto",
+   "internal": "Item_Cook_G_14",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hearty-salmon"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Crab Risotto",
+   "de": "Krabbenrisotto",
+   "internal": "Item_Cook_G_17",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "razorclaw-crab"
+     },
+     {
+      "id": "ironshell-crab"
+     },
+     {
+      "id": "bright-eyed-crab"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Vegetable Risotto",
+   "de": "Gemüserisotto",
+   "internal": "Item_Cook_G_13",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "fortified-pumpkin"
+     },
+     {
+      "id": "swift-carrot"
+     },
+     {
+      "id": "endura-carrot"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Mushroom Risotto",
+   "de": "Pilzrisotto",
+   "internal": "Item_Cook_G_12",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ],
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Cream of Mushroom Soup",
+   "de": "Pilzcremesuppe",
+   "internal": "Item_Cook_K_06",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ],
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ],
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Veggie Cream Soup",
+   "de": "Gemüsecremesuppe",
+   "internal": "Item_Cook_F_03",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "fortified-pumpkin"
+     },
+     {
+      "id": "swift-carrot"
+     },
+     {
+      "id": "endura-carrot"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Creamy Meat Soup",
+   "de": "Fleischsuppe",
+   "internal": "Item_Cook_F_01",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ],
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ],
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Creamy Seafood Soup",
+   "de": "Fischsuppe",
+   "internal": "Item_Cook_F_02",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ],
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Cream of Vegetable Soup",
+   "de": "Gemüsesuppe",
+   "internal": "Item_Cook_K_07",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ],
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Carrot Stew",
+   "de": "Karotteneintopf",
+   "internal": "Item_Cook_K_08",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "swift-carrot"
+     },
+     {
+      "id": "endura-carrot"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ],
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ],
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Mushroom Omelet",
+   "de": "Pilzomelett",
+   "internal": "Item_Cook_N_04",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "bird-egg"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ],
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Crab Omelet with Rice",
+   "de": "Krabbenreis",
+   "internal": "Item_Cook_G_16",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "razorclaw-crab"
+     },
+     {
+      "id": "ironshell-crab"
+     },
+     {
+      "id": "bright-eyed-crab"
+     }
+    ],
+    [
+     {
+      "id": "bird-egg"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Gourmet Poultry Pilaf",
+   "de": "Luxusgeflügel-Pilaw",
+   "internal": "Item_Cook_E_03",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-whole-bird"
+     }
+    ],
+    [
+     {
+      "id": "bird-egg"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Prime Poultry Pilaf",
+   "de": "Edelgeflügel-Pilaw",
+   "internal": "Item_Cook_E_02",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-bird-thigh"
+     }
+    ],
+    [
+     {
+      "id": "bird-egg"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Poultry Pilaf",
+   "de": "Geflügel-Pilaw",
+   "internal": "Item_Cook_E_01",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-bird-drumstick"
+     }
+    ],
+    [
+     {
+      "id": "bird-egg"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Vegetable Omelet",
+   "de": "Gemüseomelett",
+   "internal": "Item_Cook_N_03",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "bird-egg"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Porgy Meunière",
+   "de": "Knusperschnapper",
+   "internal": "Item_Cook_H_02",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "mighty-porgy"
+     },
+     {
+      "id": "armored-porgy"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ],
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Seafood Meunière",
+   "de": "Knusperfisch",
+   "internal": "Item_Cook_H_01",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "goat-butter"
+     }
+    ],
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Seafood Fried Rice",
+   "de": "Meeresfrüchtereis",
+   "internal": "Item_Cook_G_10",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hearty-blueshell-snail"
+     },
+     {
+      "id": "mighty-porgy"
+     },
+     {
+      "id": "armored-porgy"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Curry Pilaf",
+   "de": "Curry-Pilaw",
+   "internal": "Item_Cook_G_11",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "goron-spice"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Gourmet Meat and Rice Bowl",
+   "de": "Luxuswild-Reis",
+   "internal": "Item_Cook_G_09",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-gourmet-meat"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Prime Meat and Rice Bowl",
+   "de": "Edelwild-Reis",
+   "internal": "Item_Cook_G_06",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-prime-meat"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Meat and Rice Bowl",
+   "de": "Wild-Reis",
+   "internal": "Item_Cook_G_05",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-meat"
+     }
+    ],
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Fried Egg and Rice",
+   "de": "Spiegelei mit Reis",
+   "internal": "Item_Cook_E_04",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "bird-egg"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Meaty Rice Balls",
+   "de": "Fleisch-Reisbällchen",
+   "internal": "Item_Cook_G_15",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Seafood Rice Balls",
+   "de": "Fischreisbällchen",
+   "internal": "Item_Cook_G_02",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Mushroom Rice Balls",
+   "de": "Pilz-Reisbällchen",
+   "internal": "Item_Cook_G_04",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Veggie Rice Balls",
+   "de": "Kräuter-Reisbällchen",
+   "internal": "Item_Cook_G_03",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Hot Buttered Apple",
+   "de": "Butterapfel",
+   "internal": "Item_Cook_I_07",
+   "hb": 4,
+   "slots": [
+    [
+     {
+      "id": "apple"
+     }
+    ],
+    [
+     {
+      "id": "goat-butter"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Meat-Stuffed Pumpkin",
+   "de": "Fleischkürbis",
+   "internal": "Item_Cook_B_20",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "fortified-pumpkin"
+     }
+    ],
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Glazed Meat",
+   "de": "Festtagsgulasch",
+   "internal": "Item_Cook_A_12",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "courser-bee-honey"
+     }
+    ],
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Glazed Seafood",
+   "de": "Festtagsfisch",
+   "internal": "Item_Cook_A_13",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "courser-bee-honey"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Glazed Mushrooms",
+   "de": "Festtagspilze",
+   "internal": "Item_Cook_A_11",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "courser-bee-honey"
+     }
+    ],
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Glazed Veggies",
+   "de": "Festtagsgemüse",
+   "internal": "Item_Cook_A_14",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "courser-bee-honey"
+     }
+    ],
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Curry Rice",
+   "de": "Curryreis",
+   "internal": "Item_Cook_J_01",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hylian-rice"
+     }
+    ],
+    [
+     {
+      "id": "goron-spice"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Honeyed Apple",
+   "de": "Honigapfel",
+   "internal": "Item_Cook_I_08",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "apple"
+     }
+    ],
+    [
+     {
+      "id": "courser-bee-honey"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Honeyed Fruits",
+   "de": "Honigobst",
+   "internal": "Item_Cook_I_09",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "courser-bee-honey"
+     }
+    ],
+    [
+     {
+      "tag": "CookFruit"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Gourmet Spiced Meat Skewer",
+   "de": "Luxuswild-Schaschlik",
+   "internal": "Item_Cook_P_05",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-gourmet-meat"
+     }
+    ],
+    [
+     {
+      "id": "goron-spice"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Prime Spiced Meat Skewer",
+   "de": "Edelwild-Schaschlik",
+   "internal": "Item_Cook_P_04",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-prime-meat"
+     }
+    ],
+    [
+     {
+      "id": "goron-spice"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Spiced Meat Skewer",
+   "de": "Wild-Schaschlik",
+   "internal": "Item_Cook_P_03",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-meat"
+     }
+    ],
+    [
+     {
+      "id": "goron-spice"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Fragrant Mushroom Sauté",
+   "de": "Duftpilzpfanne",
+   "internal": "Item_Cook_P_01",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "goron-spice"
+     }
+    ],
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Herb Sauté",
+   "de": "Kräuterpfanne",
+   "internal": "Item_Cook_P_02",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "goron-spice"
+     }
+    ],
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Salt-Grilled Gourmet Meat",
+   "de": "Luxusschmorbraten",
+   "internal": "Item_Cook_D_06",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-gourmet-meat"
+     },
+     {
+      "id": "raw-whole-bird"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Salt-Grilled Prime Meat",
+   "de": "Edelschmorbraten",
+   "internal": "Item_Cook_D_05",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-bird-thigh"
+     },
+     {
+      "id": "raw-prime-meat"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Salt-Grilled Meat",
+   "de": "Schmorbraten",
+   "internal": "Item_Cook_D_04",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-meat"
+     },
+     {
+      "id": "raw-bird-drumstick"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Crab Stir-Fry",
+   "de": "Krabbenpfanne",
+   "internal": "Item_Cook_D_10",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "razorclaw-crab"
+     },
+     {
+      "id": "ironshell-crab"
+     },
+     {
+      "id": "bright-eyed-crab"
+     }
+    ],
+    [
+     {
+      "id": "goron-spice"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Salt-Grilled Crab",
+   "de": "Schmorkrabbe",
+   "internal": "Item_Cook_D_09",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "razorclaw-crab"
+     },
+     {
+      "id": "ironshell-crab"
+     },
+     {
+      "id": "bright-eyed-crab"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Salt-Grilled Fish",
+   "de": "Schmorfisch",
+   "internal": "Item_Cook_D_03",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Wheat Bread",
+   "de": "Weizenbrot",
+   "internal": "Item_Cook_M_01",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "tabantha-wheat"
+     }
+    ],
+    [
+     {
+      "id": "rock-salt"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Salt-Grilled Greens",
+   "de": "Schmorgemüse",
+   "internal": "Item_Cook_D_02",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Salt-Grilled Mushrooms",
+   "de": "Schmorpilze",
+   "internal": "Item_Cook_D_01",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "rock-salt"
+     }
+    ],
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Copious Meat Skewers",
+   "de": "Riesenfleischspieße",
+   "internal": "Item_Cook_B_16",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ],
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ],
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ],
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Copious Fried Wild Greens",
+   "de": "Wildgemüse-Schmaus",
+   "internal": "Item_Cook_B_11",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ],
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ],
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ],
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Copious Simmered Fruit",
+   "de": "Kochobst-Schmaus",
+   "internal": "Item_Cook_B_12",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookFruit"
+     }
+    ],
+    [
+     {
+      "tag": "CookFruit"
+     }
+    ],
+    [
+     {
+      "tag": "CookFruit"
+     }
+    ],
+    [
+     {
+      "tag": "CookFruit"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Copious Mushroom Skewers",
+   "de": "Pilzspießteller",
+   "internal": "Item_Cook_B_13",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ],
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ],
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ],
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Copious Seafood Skewers",
+   "de": "Riesenfischspieße",
+   "internal": "Item_Cook_B_15",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookFish"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Meat Skewer",
+   "de": "Fleischspieß",
+   "internal": "Item_Cook_B_06",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ],
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Simmered Fruit",
+   "de": "Kochobst",
+   "internal": "Item_Cook_B_02",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookFruit"
+     }
+    ],
+    [
+     {
+      "tag": "CookFruit"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Mushroom Skewer",
+   "de": "Pilzspieß",
+   "internal": "Item_Cook_A_01",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ],
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Fried Wild Greens",
+   "de": "Wildgemüse",
+   "internal": "Item_Cook_B_01",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ],
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Gourmet Meat and Seafood Fry",
+   "de": "Luxusgrillteller",
+   "internal": "Item_Cook_B_19",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-gourmet-meat"
+     },
+     {
+      "id": "raw-whole-bird"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Prime Meat and Seafood Fry",
+   "de": "Edelgrillteller",
+   "internal": "Item_Cook_B_18",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "raw-prime-meat"
+     },
+     {
+      "id": "raw-bird-thigh"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Meat and Seafood Fry",
+   "de": "Grillteller",
+   "internal": "Item_Cook_B_17",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Pepper Steak",
+   "de": "Chili-Fleisch",
+   "internal": "Item_Cook_D_07",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "spicy-pepper"
+     }
+    ],
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Pepper Seafood",
+   "de": "Chili-Fisch",
+   "internal": "Item_Cook_D_08",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "spicy-pepper"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Seafood Skewer",
+   "de": "Meeresfrüchtespieß",
+   "internal": "Item_Cook_B_23",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hearty-blueshell-snail"
+     },
+     {
+      "id": "sneaky-river-snail"
+     },
+     {
+      "id": "razorclaw-crab"
+     },
+     {
+      "id": "ironshell-crab"
+     },
+     {
+      "id": "bright-eyed-crab"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Fish Skewer",
+   "de": "Fischspieß",
+   "internal": "Item_Cook_B_05",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookFish"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Steamed Meat",
+   "de": "Dampffleisch",
+   "internal": "Item_Cook_A_05",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ],
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Steamed Fish",
+   "de": "Dampffisch",
+   "internal": "Item_Cook_A_04",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Steamed Mushrooms",
+   "de": "Dampfpilze",
+   "internal": "Item_Cook_A_02",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ],
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Steamed Fruit",
+   "de": "Dampfobst",
+   "internal": "Item_Cook_A_03",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ],
+    [
+     {
+      "tag": "CookFruit"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Fish and Mushroom Skewer",
+   "de": "Fischspieß mit Pilzen",
+   "internal": "Item_Cook_A_08",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ],
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Meat and Mushroom Skewer",
+   "de": "Fleischspieß mit Pilzen",
+   "internal": "Item_Cook_A_09",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ],
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Fruit and Mushroom Mix",
+   "de": "Obst mit Pilzen",
+   "internal": "Item_Cook_A_07",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ],
+    [
+     {
+      "tag": "CookFruit"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Meat Skewer",
+   "de": "Fleischspieß",
+   "internal": "Item_Cook_B_06",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookMeat"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Seafood Skewer",
+   "de": "Meeresfrüchtespieß",
+   "internal": "Item_Cook_B_23",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "hearty-blueshell-snail"
+     },
+     {
+      "id": "sneaky-river-snail"
+     },
+     {
+      "id": "razorclaw-crab"
+     },
+     {
+      "id": "ironshell-crab"
+     },
+     {
+      "id": "bright-eyed-crab"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Fish Skewer",
+   "de": "Fischspieß",
+   "internal": "Item_Cook_B_05",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookFish"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Omelet",
+   "de": "Omelett",
+   "internal": "Item_Cook_A_10",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "bird-egg"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Milk",
+   "de": "Warme Milch",
+   "internal": "Item_Cook_K_09",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "fresh-milk"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Mushroom Skewer",
+   "de": "Pilzspieß",
+   "internal": "Item_Cook_A_01",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookMushroom"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Fried Wild Greens",
+   "de": "Wildgemüse",
+   "internal": "Item_Cook_B_01",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookPlant"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Simmered Fruit",
+   "de": "Kochobst",
+   "internal": "Item_Cook_B_02",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "tag": "CookFruit"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Sautéed Nuts",
+   "de": "Röstnüsse",
+   "internal": "Item_Cook_B_22",
+   "hb": 0,
+   "slots": [
+    [
+     {
+      "id": "acorn"
+     }
+    ],
+    [
+     {
+      "id": "chickaloo-tree-nut"
+     }
+    ]
+   ]
+  },
+  {
+   "en": "Fairy Tonic",
+   "de": "Feenwasser",
+   "internal": "Item_Cook_C_16",
+   "hb": -12,
+   "slots": [
+    [
+     {
+      "id": "fairy"
+     }
+    ]
+   ]
+  }
+ ],
+ "singleRecipes": [
+  {
+   "en": "Fairy Tonic",
+   "de": "Feenwasser",
+   "internal": "Item_Cook_C_16",
+   "hb": -12,
+   "match": [
+    {
+     "id": "fairy"
+    }
+   ]
+  },
+  {
+   "en": "Rock-Hard Food",
+   "de": "Harter Brocken",
+   "internal": "Item_Cook_O_02",
+   "hb": 0,
+   "match": [
+    {
+     "tag": "CookOre"
+    }
+   ]
+  },
+  {
+   "en": "Sautéed Peppers",
+   "de": "Bratchilis",
+   "internal": "Item_Cook_B_21",
+   "hb": 0,
+   "match": [
+    {
+     "id": "spicy-pepper"
+    }
+   ]
+  },
+  {
+   "en": "Omelet",
+   "de": "Omelett",
+   "internal": "Item_Cook_A_10",
+   "hb": 0,
+   "match": [
+    {
+     "id": "bird-egg"
+    }
+   ]
+  },
+  {
+   "en": "Meat Skewer",
+   "de": "Fleischspieß",
+   "internal": "Item_Cook_B_06",
+   "hb": 0,
+   "match": [
+    {
+     "tag": "CookMeat"
+    }
+   ]
+  },
+  {
+   "en": "Seafood Skewer",
+   "de": "Meeresfrüchtespieß",
+   "internal": "Item_Cook_B_23",
+   "hb": 0,
+   "match": [
+    {
+     "id": "hearty-blueshell-snail"
+    },
+    {
+     "id": "sneaky-river-snail"
+    },
+    {
+     "id": "razorclaw-crab"
+    },
+    {
+     "id": "ironshell-crab"
+    },
+    {
+     "id": "bright-eyed-crab"
+    }
+   ]
+  },
+  {
+   "en": "Fish Skewer",
+   "de": "Fischspieß",
+   "internal": "Item_Cook_B_05",
+   "hb": 0,
+   "match": [
+    {
+     "tag": "CookFish"
+    }
+   ]
+  },
+  {
+   "en": "Mushroom Skewer",
+   "de": "Pilzspieß",
+   "internal": "Item_Cook_A_01",
+   "hb": 0,
+   "match": [
+    {
+     "tag": "CookMushroom"
+    }
+   ]
+  },
+  {
+   "en": "Honey Candy",
+   "de": "Honigbonbon",
+   "internal": "Item_Cook_I_16",
+   "hb": -8,
+   "match": [
+    {
+     "id": "courser-bee-honey"
+    }
+   ]
+  },
+  {
+   "en": "Sautéed Nuts",
+   "de": "Röstnüsse",
+   "internal": "Item_Cook_B_22",
+   "hb": -2,
+   "match": [
+    {
+     "id": "acorn"
+    },
+    {
+     "id": "chickaloo-tree-nut"
+    }
+   ]
+  },
+  {
+   "en": "Milk",
+   "de": "Warme Milch",
+   "internal": "Item_Cook_K_09",
+   "hb": 2,
+   "match": [
+    {
+     "id": "fresh-milk"
+    }
+   ]
+  },
+  {
+   "en": "Fried Wild Greens",
+   "de": "Wildgemüse",
+   "internal": "Item_Cook_B_01",
+   "hb": 0,
+   "match": [
+    {
+     "tag": "CookPlant"
+    }
+   ]
+  },
+  {
+   "en": "Simmered Fruit",
+   "de": "Kochobst",
+   "internal": "Item_Cook_B_02",
+   "hb": 0,
+   "match": [
+    {
+     "tag": "CookFruit"
+    }
+   ]
+  }
+ ]
+}
