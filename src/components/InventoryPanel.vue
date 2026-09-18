@@ -4,7 +4,7 @@ import { INGREDIENTS } from '../data'
 import { clearInventory, state } from '../store'
 import IngredientTile from './IngredientTile.vue'
 
-// Like the in-game Materials tab: pages of 5 × 4 slots, filled row by row, swiped sideways.
+// Like the in-game Materials tab: pages of 20 slots (5 × 4, or 4 × 5 on upright phones), filled row by row, swiped sideways.
 const PER_PAGE = 20
 const pages = Array.from({ length: Math.ceil(INGREDIENTS.length / PER_PAGE) }, (_, p) =>
   INGREDIENTS.slice(p * PER_PAGE, (p + 1) * PER_PAGE),
@@ -167,7 +167,7 @@ onMounted(syncNudge)
     <!-- In-game page arrows: only shown when there is a page in that direction. -->
     <Transition name="arrow" @enter="syncNudge">
       <button v-if="current > 0" class="arrow prev" aria-label="Previous page" @click="goTo(current - 1)">
-        <svg viewBox="0 0 24 56" aria-hidden="true"><path d="M2 28 22 2 15 28 22 54Z" /></svg>
+        <svg viewBox="0 0 24 56" preserveAspectRatio="none" aria-hidden="true"><path d="M2 28 22 2 15 28 22 54Z" /></svg>
       </button>
     </Transition>
     <Transition name="arrow" @enter="syncNudge">
@@ -177,7 +177,7 @@ onMounted(syncNudge)
         aria-label="Next page"
         @click="goTo(current + 1)"
       >
-        <svg viewBox="0 0 24 56" aria-hidden="true"><path d="M2 28 22 2 15 28 22 54Z" /></svg>
+        <svg viewBox="0 0 24 56" preserveAspectRatio="none" aria-hidden="true"><path d="M2 28 22 2 15 28 22 54Z" /></svg>
       </button>
     </Transition>
   </section>
@@ -191,7 +191,7 @@ onMounted(syncNudge)
   container-type: inline-size;
 }
 .viewport {
-  height: calc(4 * var(--slot) + 3 * var(--gap));
+  height: var(--grid-h);
   overflow: hidden;
   touch-action: none; /* swipes are handled in script */
 }
@@ -246,11 +246,11 @@ onMounted(syncNudge)
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, var(--slot));
+  grid-template-columns: repeat(var(--cols), var(--slot));
   grid-auto-rows: var(--slot);
   gap: var(--gap);
   align-content: start;
-  height: calc(4 * var(--slot) + 3 * var(--gap));
+  height: var(--grid-h);
 }
 /*
  * Above the grid's top-right corner. Styled like the game's button prompts
@@ -315,7 +315,7 @@ onMounted(syncNudge)
 .arrow {
   position: absolute;
   top: 50%;
-  width: var(--arrow);
+  width: var(--arrow-w, var(--arrow));
   height: 88px;
   margin-top: -44px;
   padding: 0;
@@ -332,16 +332,16 @@ onMounted(syncNudge)
   inset: 0 -8px;
 }
 .arrow svg {
-  width: 24px;
+  width: min(24px, 100%);
   height: 56px;
   fill: #f2f0e8;
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
 }
 .prev {
-  left: calc(50% - var(--grid-w) / 2 - var(--arrow) - var(--arrow-space, 8px));
+  left: calc(50% - var(--grid-w) / 2 - var(--arrow-w, var(--arrow)) - var(--arrow-space, 8px));
 }
 .next {
-  right: calc(50% - var(--grid-w) / 2 - var(--arrow) - var(--arrow-space, 8px));
+  right: calc(50% - var(--grid-w) / 2 - var(--arrow-w, var(--arrow)) - var(--arrow-space, 8px));
 }
 .next svg {
   transform: scaleX(-1);
@@ -355,12 +355,12 @@ onMounted(syncNudge)
 }
 @keyframes nudge-left {
   50% {
-    translate: -6px 0;
+    translate: calc(-1 * var(--nudge, 6px)) 0;
   }
 }
 @keyframes nudge-right {
   50% {
-    translate: 6px 0;
+    translate: var(--nudge, 6px) 0;
   }
 }
 @media (prefers-reduced-motion: reduce) {

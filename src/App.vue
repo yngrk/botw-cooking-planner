@@ -189,12 +189,15 @@ onBeforeUnmount(() => observer?.disconnect())
   touch-action: none; /* all vertical movement is swipe-paged in script */
 }
 /*
- * Slot size: the largest square that fits 5 across (leaving room for the page
+ * Slot size: the largest square that fits --cols across (leaving room for the page
  * arrows and a peek at the neighbouring pages) with the grid taking at most two
  * thirds of the screen height, and never more than what the HUD above and the
  * "Cook" teaser below leave free. The cooking section lines up with the grid.
  */
 .screens {
+  /* The game's 5 × 4 page; upright phones turn it to 4 × 5 (still 20 per page, see below). */
+  --cols: 5;
+  --rows: 4;
   --gap: 14px;
   --arrow: 40px;
   --peek: 72px; /* total, both sides */
@@ -202,10 +205,11 @@ onBeforeUnmount(() => observer?.disconnect())
   --hud-room: calc(16px + var(--hud-h, 92px) + 56px + 86px);
   --grid-max-h: min(66dvh, 100dvh - var(--safe-top) - var(--safe-bottom) - var(--hud-room));
   --slot: min(
-    (100cqw - 4 * var(--gap) - 2 * var(--arrow) - var(--peek)) / 5,
-    (var(--grid-max-h) - 3 * var(--gap)) / 4
+    (100cqw - (var(--cols) - 1) * var(--gap) - 2 * var(--arrow) - var(--peek)) / var(--cols),
+    (var(--grid-max-h) - (var(--rows) - 1) * var(--gap)) / var(--rows)
   );
-  --grid-w: calc(5 * var(--slot) + 4 * var(--gap));
+  --grid-w: calc(var(--cols) * var(--slot) + (var(--cols) - 1) * var(--gap));
+  --grid-h: calc(var(--rows) * var(--slot) + (var(--rows) - 1) * var(--gap));
   container-type: inline-size;
   display: flex;
   flex-direction: column;
@@ -221,17 +225,28 @@ onBeforeUnmount(() => observer?.disconnect())
 }
 
 /*
- * Phones upright: width is what's short, so tighter gaps, slim arrows and just a
- * sliver of peek, giving the width to the slots.
+ * Phones upright: width is what's short and height is left over, so 4 columns of
+ * 5 rows, tighter gaps, slim arrows and just a sliver of peek, giving the width
+ * to the slots.
  */
 @media (max-width: 600px) {
   .screens {
+    --cols: 4;
+    --rows: 5;
     --gap: 6px;
-    --arrow: 22px;
-    --peek: 8px;
-    --arrow-space: 0px; /* arrows closer to the grid, clear of the screen edge */
-    padding-left: calc(var(--safe-left) + 8px);
-    padding-right: calc(var(--safe-right) + 8px);
+    /* The arrows reserve no width of their own: they sit over the peek at the neighbouring pages. */
+    --arrow: 0px;
+    --arrow-w: 14px;
+    --arrow-space: 3px;
+    --nudge: 3px; /* the arrows' nudge stays clear of the screen edge */
+    --peek: 32px;
+    /* The Reset prompt moves up beside the stamina wheel (see .inventory), so no row is kept for it. */
+    --hud-room: calc(16px + var(--hud-h, 92px) + 16px + 86px);
+    padding-left: calc(var(--safe-left) + 6px);
+    padding-right: calc(var(--safe-right) + 6px);
+  }
+  .inventory {
+    margin-top: -40px;
   }
 }
 /*
@@ -333,7 +348,11 @@ onBeforeUnmount(() => observer?.disconnect())
   --fade: linear-gradient(
     to bottom,
     transparent calc(24px + var(--teaser-top, 70dvh)),
-    #000 calc(100% - 24px - var(--safe-bottom) - 16px)
+    /*
+     * Fully faded just above the "Cook" prompt, so it never sits over bright content;
+     * on short screens, where that leaves almost no peek, 40px into the peek instead.
+     */
+    #000 max(calc(24px + var(--teaser-top, 70dvh) + 40px), calc(100% - 24px - var(--safe-bottom) - 90px))
   );
   -webkit-mask-image: var(--fade);
   mask-image: var(--fade);

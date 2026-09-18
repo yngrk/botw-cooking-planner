@@ -39,12 +39,14 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
     </div>
 
     <TransitionGroup name="step" tag="ol" class="steps">
-      <li v-for="(step, i) in steps" :key="stepKey(step)" class="step">
+      <li v-for="(step, i) in steps" :key="stepKey(step)" class="step" :class="{ top: i === 0 && !example.length }">
         <img class="pic" :src="dishIconUrl(step.dish)" alt="" draggable="false" @error="($event.target as HTMLImageElement).style.visibility = 'hidden'" />
         <div class="head">
           <span class="times">{{ step.times }}×</span>
           <span class="name">{{ step.dish.nameEn }}</span>
-          <span v-if="i === 0 && !example.length" class="best">Best</span>
+          <svg v-if="i === 0 && !example.length" class="best" viewBox="0 0 24 24" role="img" aria-label="Best">
+            <path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z" />
+          </svg>
         </div>
         <div class="ings">
           <span v-for="e in step.dish.entries" :key="e.item.id" class="ing" :title="e.item.nameEn">
@@ -204,13 +206,22 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+/* The best dish is lit like a selected slot in the game: bright frame, soft glow, gold label. */
+.step.top {
+  outline-color: var(--frame-line-on);
+  box-shadow: var(--frame-glow);
+}
 .best {
-  font-size: var(--fs-small);
-  font-weight: 800;
-  padding: 2px 7px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.9);
-  color: #111;
+  align-self: center;
+  flex: none;
+  width: calc(var(--fs-name) * 1.1);
+  height: calc(var(--fs-name) * 1.1);
+  margin-left: auto;
+  fill: var(--gold);
+  stroke: #fff6d0;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 5px rgba(246, 215, 122, 0.7));
 }
 .ings {
   grid-area: ings;
@@ -263,8 +274,9 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
 .cook {
   grid-area: cook;
   align-self: center;
-  min-height: 48px;
-  padding: 0 20px;
+  /* In em, so the frame keeps its room around the text as the text grows on big screens. */
+  min-height: max(48px, 2.6em);
+  padding: 0 1.3em;
   border: none;
   border-radius: var(--frame-radius);
   background: var(--frame-bg);
