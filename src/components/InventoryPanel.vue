@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { INGREDIENTS } from '../data'
+import { clearInventory, state } from '../store'
 import IngredientTile from './IngredientTile.vue'
 
 defineEmits<{ edit: [id: string] }>()
@@ -82,6 +83,22 @@ function onWheel(e: WheelEvent) {
   goTo(current.value + Math.sign(d))
 }
 
+// Reset empties the whole inventory, so it takes two taps: the first arms it.
+const RESET_ARM_MS = 3000
+const hasInventory = computed(() => Object.keys(state.inventory).length > 0)
+const resetArmed = ref(false)
+let resetTimer: number | undefined
+function onReset() {
+  clearTimeout(resetTimer)
+  if (resetArmed.value) {
+    clearInventory()
+    resetArmed.value = false
+  } else {
+    resetArmed.value = true
+    resetTimer = window.setTimeout(() => (resetArmed.value = false), RESET_ARM_MS)
+  }
+}
+
 let observer: ResizeObserver | undefined
 onMounted(() => {
   const measure = () => {
@@ -104,7 +121,10 @@ onMounted(() => {
   observer.observe(track.value!)
   measure()
 })
-onBeforeUnmount(() => observer?.disconnect())
+onBeforeUnmount(() => {
+  observer?.disconnect()
+  clearTimeout(resetTimer)
+})
 </script>
 
 <template>
@@ -127,6 +147,18 @@ onBeforeUnmount(() => observer?.disconnect())
       </div>
     </div>
     <div ref="fade" class="edge-fade" aria-hidden="true" />
+    <button
+      class="reset"
+      :class="{ armed: resetArmed }"
+      :disabled="!hasInventory"
+      :aria-label="resetArmed ? 'Tap again to clear all ingredients' : 'Clear all ingredients'"
+      @click="onReset"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5" />
+      </svg>
+      <span>{{ resetArmed ? 'Reset?' : 'Reset' }}</span>
+    </button>
     <!-- In-game page arrows: only shown when there is a page in that direction. -->
     <Transition name="arrow">
       <button v-if="current > 0" class="arrow prev" aria-label="Previous page" @click="goTo(current - 1)">
@@ -214,6 +246,42 @@ onBeforeUnmount(() => observer?.disconnect())
   gap: var(--gap);
   align-content: start;
   height: calc(4 * var(--slot) + 3 * var(--gap));
+}
+/* Above the grid's top-right corner, in the space below the HUD. */
+.reset {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  right: calc(50% - var(--grid-w) / 2);
+  min-height: 44px;
+  padding: 0 4px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: none;
+  color: #f2f0e8;
+  font-size: 17px;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  transition:
+    color 0.15s,
+    opacity 0.2s;
+}
+.reset svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
+}
+.reset.armed {
+  color: #ff6b5e;
+}
+.reset:disabled {
+  opacity: 0.35;
 }
 .arrow {
   position: absolute;
