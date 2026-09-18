@@ -54,15 +54,13 @@ function shift() {
   return cookView.value!.offsetTop - cook.value!.offsetTop + COOK_TOP_SPACE + 16 - SCREEN_EDGE
 }
 const maxY = () => Math.max(0, cookInner.value!.offsetHeight - cookView.value!.clientHeight)
-// The last page may go past maxY (empty space below) so it can still start on a card.
-const limitY = () => Math.max(maxY(), (cards().at(-1)?.top ?? 0) + shift())
 
 function nextPage() {
   const view = cookView.value!.clientHeight - INDICATOR_SPACE
   const cut = cards().find((c) => c.bottom > cookY.value + view)
   let y = cut ? cut.top + shift() : Math.min(cookY.value + view, maxY())
   if (y <= cookY.value) y = cookY.value + view // a card taller than the screen
-  cookY.value = Math.min(y, limitY())
+  cookY.value = Math.min(y, maxY()) // the last page stops once the list's end is in view
 }
 
 function prevPage() {
@@ -75,7 +73,7 @@ function prevPage() {
 }
 
 function updateMore() {
-  if (cookY.value > limitY()) cookY.value = limitY() // plan got shorter
+  if (cookY.value > maxY()) cookY.value = maxY() // plan got shorter
   hasMore.value = cookY.value < maxY() - 1
 }
 watch(cookY, updateMore)
