@@ -205,7 +205,8 @@ onBeforeUnmount(() => observer?.disconnect())
 .cook {
   flex: none;
   height: calc(100dvh - var(--safe-top) - var(--safe-bottom) - 32px - 48px); /* 48px = COOK_TOP_SPACE */
-  width: var(--grid-w);
+  /* Lines up with the grid; on small phones at least wide enough for the goal buttons. */
+  width: min(100%, max(var(--grid-w), 6 * 48px + 5 * 8px));
   align-self: center;
   margin-top: -32px; /* closer than the HUD gap, so it peeks in below the grid */
   display: flex;

@@ -26,13 +26,14 @@ const s = state.settings
 <style scoped>
 .goals {
   display: grid;
-  grid-template-columns: repeat(12, 1fr); /* one row across the grid width */
-  gap: 6px;
+  /* Two rows of six: big enough to hit with a finger, never under 48px. */
+  grid-template-columns: repeat(6, minmax(48px, 1fr));
+  gap: 8px;
 }
 /* Same look as the inventory slots: dark, slightly transparent, inset border. */
 .goal {
   aspect-ratio: 1;
-  padding: 18%;
+  padding: 20%;
   border: none;
   border-radius: 3px;
   background: rgba(12, 12, 12, 0.62);

@@ -21,10 +21,12 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
   <section class="plan">
     <h2 class="section-title title">Recipes · {{ goalLabel }}</h2>
     <div class="opts">
-      <button class="chip" :class="{ on: s.includeElixirs }" @click="s.includeElixirs = !s.includeElixirs">
+      <button class="toggle" :class="{ on: s.includeElixirs }" :aria-pressed="s.includeElixirs" @click="s.includeElixirs = !s.includeElixirs">
+        <span class="box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" /></svg></span>
         Elixirs
       </button>
-      <button class="chip" :class="{ on: s.allowRare }" @click="s.allowRare = !s.allowRare">
+      <button class="toggle" :class="{ on: s.allowRare }" :aria-pressed="s.allowRare" @click="s.allowRare = !s.allowRare">
+        <span class="box" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3.5 8.5 6.5 11.5 12.5 4.5" /></svg></span>
         Allow rare
       </button>
     </div>
@@ -73,10 +75,10 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
  * item name (~¼ slot) and description (~⅙ slot). --slot comes from App.vue.
  */
 .plan {
-  --fs-title: calc(var(--slot) * 0.2);
-  --fs-name: calc(var(--slot) * 0.22);
-  --fs-text: calc(var(--slot) * 0.16);
-  --fs-small: calc(var(--slot) * 0.13);
+  --fs-title: max(17px, var(--slot) * 0.2);
+  --fs-name: max(18px, var(--slot) * 0.22);
+  --fs-text: max(15px, var(--slot) * 0.16);
+  --fs-small: max(13px, var(--slot) * 0.13);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -84,9 +86,50 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
 .title {
   font-size: var(--fs-title);
 }
-.opts .chip {
-  font-size: var(--fs-small);
+/* Toggles look like the slots: dark, slightly transparent, inset border. */
+.toggle {
   min-height: 44px;
+  padding: 0 16px 0 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 3px;
+  background: rgba(12, 12, 12, 0.62);
+  outline: 2px solid rgba(150, 150, 150, 0.35);
+  outline-offset: -4px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  transition:
+    color 0.15s,
+    outline-color 0.15s;
+}
+.toggle.on {
+  color: #fff;
+  outline-color: rgba(255, 255, 255, 0.9);
+}
+.box {
+  width: 18px;
+  height: 18px;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+  display: grid;
+  place-items: center;
+}
+.box svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.toggle.on .box svg {
+  opacity: 1;
 }
 .opts {
   display: flex;
@@ -118,8 +161,8 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
 .pic {
   grid-area: pic;
   align-self: center;
-  width: calc(var(--slot) * 0.85);
-  height: calc(var(--slot) * 0.85);
+  width: max(56px, var(--slot) * 0.85);
+  height: max(56px, var(--slot) * 0.85);
   object-fit: contain;
 }
 .head {
@@ -160,8 +203,8 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
 }
 .ing {
   position: relative;
-  width: calc(var(--slot) * 0.42);
-  height: calc(var(--slot) * 0.42);
+  width: max(34px, var(--slot) * 0.42);
+  height: max(34px, var(--slot) * 0.42);
   border: 1px solid rgba(190, 190, 190, 0.45);
   border-radius: 3px;
   background: rgba(14, 14, 14, 0.9);
