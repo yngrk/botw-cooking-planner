@@ -125,6 +125,13 @@ onBeforeUnmount(() => {
   observer?.disconnect()
   clearTimeout(resetTimer)
 })
+// The left arrow only appears after paging, so its nudge loop would start out of
+// phase with the right one. Pin every loop to the page clock so both move in and
+// out together.
+function syncNudge() {
+  document.querySelectorAll('.arrow svg').forEach((svg) => svg.getAnimations().forEach((a) => (a.startTime = 0)))
+}
+onMounted(syncNudge)
 </script>
 
 <template>
@@ -160,12 +167,12 @@ onBeforeUnmount(() => {
       <span>{{ resetArmed ? 'Clear all?' : 'Reset' }}</span>
     </button>
     <!-- In-game page arrows: only shown when there is a page in that direction. -->
-    <Transition name="arrow">
+    <Transition name="arrow" @enter="syncNudge">
       <button v-if="current > 0" class="arrow prev" aria-label="Previous page" @click="goTo(current - 1)">
         <svg viewBox="0 0 24 56" aria-hidden="true"><path d="M2 28 22 2 15 28 22 54Z" /></svg>
       </button>
     </Transition>
-    <Transition name="arrow">
+    <Transition name="arrow" @enter="syncNudge">
       <button
         v-if="current < pages.length - 1"
         class="arrow next"
