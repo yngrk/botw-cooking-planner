@@ -26,8 +26,9 @@ const s = state.settings
 <style scoped>
 .goals {
   display: grid;
-  /* Two rows of six: big enough to hit with a finger, never under 48px. */
-  grid-template-columns: repeat(6, minmax(48px, 1fr));
+  /* Two rows of six: big enough to hit with a finger (never under 48px), but no bigger than needed. */
+  grid-template-columns: repeat(6, minmax(48px, 72px));
+  justify-content: center;
   gap: 8px;
 }
 /* Same look as the inventory slots: dark, slightly transparent, inset border. */
@@ -41,14 +42,14 @@ const s = state.settings
   outline-offset: var(--frame-inset);
   display: grid;
   place-items: center;
-  opacity: 0.55;
   transition:
-    opacity 0.15s,
+    background-color 0.15s,
     outline-color 0.15s,
     box-shadow 0.2s;
 }
+/* Only the chosen goal is lit: bright frame, glow, full-colour icon. The rest stay dim and grey. */
 .goal.on {
-  opacity: 1;
+  background: rgba(60, 60, 60, 0.7);
   outline-color: var(--frame-line-on);
   box-shadow: var(--frame-glow);
 }
@@ -56,5 +57,14 @@ const s = state.settings
   width: 100%;
   height: 100%;
   object-fit: contain;
+  opacity: 0.4;
+  filter: grayscale(0.7);
+  transition:
+    opacity 0.15s,
+    filter 0.15s;
+}
+.goal.on :deep(.effect-icon) {
+  opacity: 1;
+  filter: none;
 }
 </style>

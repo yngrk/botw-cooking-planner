@@ -32,8 +32,9 @@ watch(cooking, place)
 
 // A long plan pages like the rest: a swipe (or "More") moves it by a fixed
 // step, so the next card that was cut off lands at the top. No free scrolling.
+// Pages land exactly on a card's top edge; any margin would let the previous
+// card peek in as a thin bar above it.
 const INDICATOR_SPACE = 110 // px at the bottom covered by the fade and "More"
-const CARD_MARGIN = 12
 const cookY = ref(0)
 const hasMore = ref(false)
 
@@ -45,25 +46,27 @@ function cards() {
   })
 }
 const maxY = () => Math.max(0, cookInner.value!.offsetHeight - cookView.value!.clientHeight)
+// The last page may go past maxY (empty space below) so it can still start on a card.
+const limitY = () => Math.max(maxY(), cards().at(-1)?.top ?? 0)
 
 function nextPage() {
   const view = cookView.value!.clientHeight - INDICATOR_SPACE
   const cut = cards().find((c) => c.bottom > cookY.value + view)
-  let y = cut ? cut.top - CARD_MARGIN : cookY.value + view
+  let y = cut ? cut.top : Math.min(cookY.value + view, maxY())
   if (y <= cookY.value) y = cookY.value + view // a card taller than the screen
-  cookY.value = Math.min(y, maxY())
+  cookY.value = Math.min(y, limitY())
 }
 
 function prevPage() {
   const view = cookView.value!.clientHeight - INDICATOR_SPACE
   const target = cookY.value - view
   // Earliest card that still fits above the current top one.
-  const card = cards().find((c) => c.top - CARD_MARGIN >= target && c.top - CARD_MARGIN < cookY.value)
-  cookY.value = target <= 0 || !card ? Math.max(0, target) : card.top - CARD_MARGIN
+  const card = cards().find((c) => c.top >= target && c.top < cookY.value)
+  cookY.value = target <= 0 || !card ? Math.max(0, target) : card.top
 }
 
 function updateMore() {
-  if (cookY.value > maxY()) cookY.value = maxY() // plan got shorter
+  if (cookY.value > limitY()) cookY.value = limitY() // plan got shorter
   hasMore.value = cookY.value < maxY() - 1
 }
 watch(cookY, updateMore)
@@ -135,9 +138,10 @@ onBeforeUnmount(() => observer?.disconnect())
       <StatusHud />
       <InventoryPanel class="inventory" @edit="editing = $event" />
       <section ref="cook" class="cook">
-        <GoalBar class="goal-bar" />
         <div ref="cookView" class="cook-view">
+          <!-- "More" pages the whole section, goal bar included. -->
           <div ref="cookInner" class="cook-inner" :style="{ transform: `translate3d(0, ${-cookY}px, 0)` }">
+            <GoalBar class="goal-bar" />
             <PlanPanel />
           </div>
         </div>
