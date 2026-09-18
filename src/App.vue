@@ -223,14 +223,18 @@ onBeforeUnmount(() => observer?.disconnect())
   flex: none;
 }
 
-/* Phones upright: width is what's short, so tighter gaps, slimmer arrows, less peek. */
+/*
+ * Phones upright: width is what's short, so tighter gaps, slim arrows and just a
+ * sliver of peek, giving the width to the slots.
+ */
 @media (max-width: 600px) {
   .screens {
-    --gap: 8px;
-    --arrow: 28px;
-    --peek: 16px;
-    padding-left: calc(var(--safe-left) + 12px);
-    padding-right: calc(var(--safe-right) + 12px);
+    --gap: 6px;
+    --arrow: 22px;
+    --peek: 8px;
+    --arrow-space: 0px; /* arrows closer to the grid, clear of the screen edge */
+    padding-left: calc(var(--safe-left) + 8px);
+    padding-right: calc(var(--safe-right) + 8px);
   }
 }
 /*

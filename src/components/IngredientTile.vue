@@ -152,6 +152,16 @@ watch(n, () => bump.value++)
   opacity: 1;
   filter: none;
 }
+/* Phones upright: small slots, so the frame hugs the edge and the icon fills more of it. */
+@media (max-width: 600px) {
+  .slot {
+    --frame-inset: -3px;
+  }
+  .icon {
+    width: 90%;
+    height: 90%;
+  }
+}
 .fallback {
   font-size: 34px;
   display: flex;

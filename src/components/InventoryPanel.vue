@@ -340,10 +340,10 @@ onMounted(syncNudge)
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
 }
 .prev {
-  left: calc(50% - var(--grid-w) / 2 - var(--arrow) - 8px);
+  left: calc(50% - var(--grid-w) / 2 - var(--arrow) - var(--arrow-space, 8px));
 }
 .next {
-  right: calc(50% - var(--grid-w) / 2 - var(--arrow) - 8px);
+  right: calc(50% - var(--grid-w) / 2 - var(--arrow) - var(--arrow-space, 8px));
 }
 .next svg {
   transform: scaleX(-1);
