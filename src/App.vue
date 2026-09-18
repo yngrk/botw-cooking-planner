@@ -164,7 +164,6 @@ onBeforeUnmount(() => observer?.disconnect())
     <!-- Fixed in the corner on both stops; replays the first-visit tour. -->
     <button class="help" aria-label="Show the tour again" @click="state.tourDone = false">
       <span class="glyph" aria-hidden="true">?</span>
-      <span class="label">Help</span>
     </button>
 
     <!-- The cooking section fades into the world at the bottom, like the page edges. -->
@@ -289,7 +288,7 @@ onBeforeUnmount(() => observer?.disconnect())
   will-change: transform;
 }
 
-/* Styled like the grid's "Reset" prompt: white round button glyph, then the action. */
+/* Just the round button glyph of the grid's "Reset" prompt. */
 .help {
   position: absolute;
   z-index: 2;
@@ -297,17 +296,11 @@ onBeforeUnmount(() => observer?.disconnect())
   right: calc(var(--safe-right) + 12px);
   min-height: 44px;
   min-width: 44px;
-  padding: 0 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  padding: 0;
+  display: grid;
+  place-items: center;
   border: none;
   background: none;
-  color: #f2f0e8;
-  font-size: 18px;
-  font-weight: 700;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 .help .glyph {
   width: 28px;
@@ -321,18 +314,11 @@ onBeforeUnmount(() => observer?.disconnect())
   font-size: 19px;
   font-weight: 800;
   line-height: 1;
-  text-shadow: none;
   transition: transform 0.28s var(--spring);
 }
 .help:active .glyph {
   transform: scale(0.88);
   transition-duration: 0.06s;
-}
-/* Phones: the hearts reach far right, so just the glyph. */
-@media (max-width: 600px) {
-  .help .label {
-    display: none;
-  }
 }
 
 /* Static copy of the page background (body::before), shown only at the bottom. */
