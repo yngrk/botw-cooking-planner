@@ -63,12 +63,17 @@ function onUp() {
 function onTap() {
   if (longPressed || cancelled) return
   addCount(props.item.id, 1)
+  flashes.value++
   // A tap quicker than the press delay still gets a short sink-and-spring.
   if (!pressShown) {
     pressed.value = true
     setTimeout(() => (pressed.value = false), TAP_FLASH_MS)
   }
 }
+
+// Each tap lights the slot up white, like selecting in the game's inventory
+// (a fresh element per tap, so quick taps each replay it).
+const flashes = ref(0)
 
 // Retrigger the count "bump" animation on every change.
 const bump = ref(0)
@@ -100,6 +105,7 @@ watch(n, () => bump.value++)
     />
     <span v-else class="icon fallback" aria-hidden="true">{{ categoryInfo(item.category).icon }}</span>
     <EffectIcon v-if="restoresHearts" kind="hearts" class="heart" />
+    <span v-if="flashes" :key="flashes" class="flash" aria-hidden="true" />
     <span v-if="n > 0" :key="bump" class="count">x{{ n }}</span>
   </div>
 </template>
@@ -162,6 +168,31 @@ watch(n, () => bump.value++)
 }
 .owned .heart {
   opacity: 1;
+}
+.flash {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--frame-radius);
+  pointer-events: none;
+  outline: var(--frame-width) solid #fff;
+  outline-offset: var(--frame-inset);
+  animation: tap-flash 0.45s ease-out forwards;
+}
+@keyframes tap-flash {
+  from {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow:
+      0 0 18px rgba(255, 255, 255, 0.8),
+      inset 0 0 18px rgba(255, 255, 255, 0.7);
+    opacity: 1;
+  }
+  to {
+    background: rgba(255, 255, 255, 0);
+    box-shadow:
+      0 0 18px rgba(255, 255, 255, 0),
+      inset 0 0 18px rgba(255, 255, 255, 0);
+    opacity: 0;
+  }
 }
 .count {
   position: absolute;
