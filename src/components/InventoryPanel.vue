@@ -4,7 +4,7 @@ import { INGREDIENTS } from '../data'
 import { clearInventory, state } from '../store'
 import IngredientTile from './IngredientTile.vue'
 
-defineEmits<{ edit: [id: string]; tour: [] }>()
+defineEmits<{ edit: [id: string] }>()
 
 // Like the in-game Materials tab: pages of 5 × 4 slots, filled row by row, swiped sideways.
 const PER_PAGE = 20
@@ -154,11 +154,6 @@ onMounted(syncNudge)
       </div>
     </div>
     <div ref="fade" class="edge-fade" aria-hidden="true" />
-    <!-- Mirrors "Reset" on the other corner: replays the first-visit tour. -->
-    <button class="help" aria-label="Show the tour again" @click="$emit('tour')">
-      <span class="glyph" aria-hidden="true">?</span>
-      <span>Help</span>
-    </button>
     <button
       class="reset"
       :class="{ armed: resetArmed }"
@@ -263,8 +258,7 @@ onMounted(syncNudge)
  * Above the grid's top-right corner. Styled like the game's button prompts
  * ("Ⓨ Sort"): a white round button glyph, then the action in white.
  */
-.reset,
-.help {
+.reset {
   position: absolute;
   bottom: calc(100% + 6px);
   right: calc(50% - var(--grid-w) / 2);
@@ -300,19 +294,7 @@ onMounted(syncNudge)
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.help {
-  right: auto;
-  left: calc(50% - var(--grid-w) / 2);
-  padding: 0 10px 0 2px;
-}
-.help .glyph {
-  color: #1b1b1b;
-  font-size: 19px;
-  font-weight: 800;
-  line-height: 1;
-}
-.reset:active .glyph,
-.help:active .glyph {
+.reset:active .glyph {
   transform: scale(0.88);
   transition-duration: 0.06s;
 }

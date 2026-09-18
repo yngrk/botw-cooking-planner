@@ -149,7 +149,7 @@ onBeforeUnmount(() => observer?.disconnect())
   >
     <div ref="screens" class="screens">
       <StatusHud ref="status" class="status" />
-      <InventoryPanel class="inventory" @edit="editing = $event" @tour="state.tourDone = false" />
+      <InventoryPanel class="inventory" @edit="editing = $event" />
       <section ref="cook" class="cook">
         <div ref="cookView" class="cook-view">
           <!-- "More" pages the whole section, goal bar included. -->
@@ -160,6 +160,12 @@ onBeforeUnmount(() => observer?.disconnect())
         </div>
       </section>
     </div>
+
+    <!-- Fixed in the corner on both stops; replays the first-visit tour. -->
+    <button class="help" aria-label="Show the tour again" @click="state.tourDone = false">
+      <span class="glyph" aria-hidden="true">?</span>
+      <span class="label">Help</span>
+    </button>
 
     <!-- The cooking section fades into the world at the bottom, like the page edges. -->
     <div class="bottom-fade" :class="{ hidden: cooking && !hasMore }" aria-hidden="true" />
@@ -281,6 +287,52 @@ onBeforeUnmount(() => observer?.disconnect())
 .cook-inner {
   transition: transform var(--screen-ease);
   will-change: transform;
+}
+
+/* Styled like the grid's "Reset" prompt: white round button glyph, then the action. */
+.help {
+  position: absolute;
+  z-index: 2;
+  top: calc(var(--safe-top) + 12px);
+  right: calc(var(--safe-right) + 12px);
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  background: none;
+  color: #f2f0e8;
+  font-size: 18px;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+.help .glyph {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f2f0e8;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  display: grid;
+  place-items: center;
+  color: #1b1b1b;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1;
+  text-shadow: none;
+  transition: transform 0.28s var(--spring);
+}
+.help:active .glyph {
+  transform: scale(0.88);
+  transition-duration: 0.06s;
+}
+/* Phones: the hearts reach far right, so just the glyph. */
+@media (max-width: 600px) {
+  .help .label {
+    display: none;
+  }
 }
 
 /* Static copy of the page background (body::before), shown only at the bottom. */
