@@ -10,8 +10,8 @@ RUN npm ci
 
 COPY . .
 
-# Ingredient icons are Nintendo artwork and deliberately not in git. A local build
-# reuses public/icons/ from the build context; a clean checkout (CI) fetches them.
+# Ingredient icons are committed under public/icons/. Fallback: if they are ever
+# missing from the build context, fetch them from Zelda Wiki.
 RUN if [ -z "$(ls -A public/icons 2>/dev/null)" ]; then \
       apk add --no-cache python3 && python3 scripts/fetch-icons.py; \
     fi
