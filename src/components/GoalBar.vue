@@ -31,8 +31,8 @@ const s = state.settings
   justify-content: center;
   gap: 8px;
 }
-/* Phones sideways: one row of twelve, so the recipes still get some height. */
-@media (max-height: 500px) and (orientation: landscape) {
+/* Wide screens (see App.vue): one row of twelve, so the recipes still get some height. */
+@media (min-aspect-ratio: 16/10) {
   .goals {
     grid-template-columns: repeat(12, minmax(44px, 56px));
   }

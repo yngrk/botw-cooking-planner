@@ -14,6 +14,7 @@ const SWIPE_DISTANCE = 24
 const COOK_TOP_SPACE = 48 // px above the cooking section when scrolled there (keep in sync with .cook height)
 
 const cooking = ref(false)
+const status = ref<InstanceType<typeof StatusHud>>()
 const app = ref<HTMLElement>()
 const screens = ref<HTMLElement>()
 const cook = ref<HTMLElement>()
@@ -27,6 +28,8 @@ function place() {
   app.value!.style.setProperty('--screen-y', `${-y}px`)
   // The bottom fade starts where the cooking section peeks in below the grid.
   app.value!.style.setProperty('--teaser-top', `${cook.value!.offsetTop}px`)
+  // The grid's height budget depends on how tall the HUD is (one to three rows of hearts).
+  app.value!.style.setProperty('--hud-h', `${status.value!.$el.offsetHeight}px`)
 }
 watch(cooking, place)
 
@@ -126,6 +129,7 @@ onMounted(async () => {
   observer.observe(screens.value!)
   observer.observe(cookInner.value!)
   observer.observe(cookView.value!)
+  observer.observe(status.value!.$el)
   place()
   updateMore()
 })
@@ -142,7 +146,7 @@ onBeforeUnmount(() => observer?.disconnect())
     @wheel.passive="onWheel"
   >
     <div ref="screens" class="screens">
-      <StatusHud class="status" />
+      <StatusHud ref="status" class="status" />
       <InventoryPanel class="inventory" @edit="editing = $event" />
       <section ref="cook" class="cook">
         <div ref="cookView" class="cook-view">
@@ -189,7 +193,8 @@ onBeforeUnmount(() => observer?.disconnect())
   --gap: 14px;
   --arrow: 40px;
   --peek: 72px; /* total, both sides */
-  --hud-room: 250px; /* padding + HUD + gap above the grid, teaser below */
+  /* Padding, HUD and gap above the grid; the "Cook" teaser below it. */
+  --hud-room: calc(16px + var(--hud-h, 92px) + 56px + 86px);
   --grid-max-h: min(66dvh, 100dvh - var(--safe-top) - var(--safe-bottom) - var(--hud-room));
   --slot: min(
     (100cqw - 4 * var(--gap) - 2 * var(--arrow) - var(--peek)) / 5,
@@ -221,12 +226,12 @@ onBeforeUnmount(() => observer?.disconnect())
   }
 }
 /*
- * Phones sideways: height is what's short. The HUD moves up beside the grid
- * (there's room left and right of it), leaving only the reset prompt above it.
+ * Wide screens (phones sideways, wide browser windows): height is what's short
+ * and there's room left and right of the grid. The HUD moves up beside it,
+ * leaving only the reset prompt above the grid.
  */
-@media (max-height: 500px) and (orientation: landscape) {
+@media (min-aspect-ratio: 16/10) {
   .screens {
-    --gap: 10px;
     --hud-room: 150px;
   }
   .status {
@@ -238,7 +243,12 @@ onBeforeUnmount(() => observer?.disconnect())
     margin-top: 44px; /* the reset prompt above the grid */
   }
   .screens .cook {
-    width: min(100%, 720px); /* the goals fit in one row here */
+    width: min(100%, max(var(--grid-w), 720px)); /* the goals fit in one row here */
+  }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .screens {
+    --gap: 10px;
   }
 }
 .screens > :not(.cook) {

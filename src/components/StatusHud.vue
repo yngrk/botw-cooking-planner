@@ -214,8 +214,8 @@ button {
   filter: drop-shadow(0 0 3px rgba(62, 226, 107, 0.55));
 }
 
-/* Phones sideways: the HUD sits beside the grid, so it stays narrow and the hint goes below. */
-@media (max-height: 500px) and (orientation: landscape) {
+/* Wide screens: the HUD sits beside the grid (App.vue), so it stays narrow and the hint goes below. */
+@media (min-aspect-ratio: 16/10) {
   .hearts {
     grid-template-columns: repeat(5, 26px);
   }
