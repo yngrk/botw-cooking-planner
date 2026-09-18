@@ -152,6 +152,18 @@ onMounted(syncNudge)
       </div>
     </div>
     <div ref="fade" class="edge-fade" aria-hidden="true" />
+    <!-- In-game page dots above the grid: the current page is lit. -->
+    <nav class="dots" aria-label="Pages">
+      <button
+        v-for="(_, p) in pages"
+        :key="p"
+        class="dot"
+        :class="{ on: p === current }"
+        :aria-label="`Page ${p + 1} of ${pages.length}`"
+        :aria-current="p === current ? 'page' : undefined"
+        @click="goTo(p)"
+      />
+    </nav>
     <button
       class="reset"
       :class="{ armed: resetArmed }"
@@ -251,6 +263,34 @@ onMounted(syncNudge)
   gap: var(--gap);
   align-content: start;
   height: var(--grid-h);
+}
+/* Tiny and close together like the game's page dots above the tab icons: white for the current page, grey for the rest. */
+.dots {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  translate: -50% 0;
+  display: flex;
+  gap: 4px;
+}
+.dot {
+  position: relative;
+  width: 4px;
+  height: 4px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(242, 240, 232, 0.3);
+  transition: background-color 0.2s;
+}
+/* Finger-sized hit area around each tiny dot. */
+.dot::before {
+  content: '';
+  position: absolute;
+  inset: -14px -3px;
+}
+.dot.on {
+  background: #fff;
 }
 /*
  * Above the grid's top-right corner. Styled like the game's button prompts
