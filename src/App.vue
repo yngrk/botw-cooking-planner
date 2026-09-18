@@ -32,9 +32,11 @@ watch(cooking, place)
 
 // A long plan pages like the rest: a swipe (or "More") moves it by a fixed
 // step, so the next card that was cut off lands at the top. No free scrolling.
-// Pages land exactly on a card's top edge; any margin would let the previous
-// card peek in as a thin bar above it.
+// The list isn't clipped at its own top (that edge would cut cards mid-screen
+// while paging); cards scroll off the screen edge instead. So a new page puts
+// its first card just below the screen top, where the previous card can't peek in.
 const INDICATOR_SPACE = 110 // px at the bottom covered by the fade and "More"
+const SCREEN_EDGE = 8 // px between the screen top (below the safe area) and a page's first card
 const cookY = ref(0)
 const hasMore = ref(false)
 
@@ -45,24 +47,31 @@ function cards() {
     return { top: r.top - top, bottom: r.bottom - top }
   })
 }
+// How far the list's top lies below the spot where a page's first card lands
+// (from layout, not on-screen rects, which are off while the section slides in).
+// On the cooking page the section's top sits COOK_TOP_SPACE below the screen padding.
+function shift() {
+  return cookView.value!.offsetTop - cook.value!.offsetTop + COOK_TOP_SPACE + 16 - SCREEN_EDGE
+}
 const maxY = () => Math.max(0, cookInner.value!.offsetHeight - cookView.value!.clientHeight)
 // The last page may go past maxY (empty space below) so it can still start on a card.
-const limitY = () => Math.max(maxY(), cards().at(-1)?.top ?? 0)
+const limitY = () => Math.max(maxY(), (cards().at(-1)?.top ?? 0) + shift())
 
 function nextPage() {
   const view = cookView.value!.clientHeight - INDICATOR_SPACE
   const cut = cards().find((c) => c.bottom > cookY.value + view)
-  let y = cut ? cut.top : Math.min(cookY.value + view, maxY())
+  let y = cut ? cut.top + shift() : Math.min(cookY.value + view, maxY())
   if (y <= cookY.value) y = cookY.value + view // a card taller than the screen
   cookY.value = Math.min(y, limitY())
 }
 
 function prevPage() {
   const view = cookView.value!.clientHeight - INDICATOR_SPACE
-  const target = cookY.value - view
+  const s = shift()
+  const target = cookY.value - s - view
   // Earliest card that still fits above the current top one.
-  const card = cards().find((c) => c.top >= target && c.top < cookY.value)
-  cookY.value = target <= 0 || !card ? Math.max(0, target) : card.top
+  const card = cards().find((c) => c.top + s >= target && c.top + s < cookY.value)
+  cookY.value = target <= 0 || !card ? Math.max(0, target) : card.top + s
 }
 
 function updateMore() {
@@ -218,8 +227,7 @@ onBeforeUnmount(() => observer?.disconnect())
 }
 .cook-view {
   flex: 1;
-  min-height: 0;
-  overflow: hidden;
+  min-height: 0; /* no overflow clip: .app clips at the screen edges */
 }
 .cook-inner {
   transition: transform var(--screen-ease);
@@ -267,6 +275,17 @@ onBeforeUnmount(() => observer?.disconnect())
   height: 17px;
   fill: #f2f0e8;
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
+  animation: nudge-down 1.1s ease-in-out infinite; /* like the grid's side arrows */
+}
+@keyframes nudge-down {
+  50% {
+    translate: 0 5px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .more svg {
+    animation: none;
+  }
 }
 /* On the cooking page the fade only covers the bottom, above "More". */
 .cooking .bottom-fade {

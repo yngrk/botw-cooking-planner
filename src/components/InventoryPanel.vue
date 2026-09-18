@@ -335,6 +335,28 @@ onBeforeUnmount(() => {
 .next svg {
   transform: scaleX(-1);
 }
+/* Like in-game: the arrows keep nudging outward, towards the page they lead to. */
+.prev svg {
+  animation: nudge-left 1.1s ease-in-out infinite;
+}
+.next svg {
+  animation: nudge-right 1.1s ease-in-out infinite;
+}
+@keyframes nudge-left {
+  50% {
+    translate: -6px 0;
+  }
+}
+@keyframes nudge-right {
+  50% {
+    translate: 6px 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arrow svg {
+    animation: none;
+  }
+}
 .prev:active {
   transform: translateX(-6px) scale(0.9);
   transition-duration: 0.06s;
