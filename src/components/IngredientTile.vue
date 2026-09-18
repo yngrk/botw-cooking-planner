@@ -109,12 +109,12 @@ watch(n, () => bump.value++)
 .slot {
   position: relative;
   aspect-ratio: 1;
-  border-radius: 3px;
+  border-radius: var(--frame-radius);
   /* Slightly see-through like the game, so the world shows faintly behind. */
-  background: rgba(12, 12, 12, 0.62);
+  background: var(--frame-bg);
   /* The light frame sits a few px inside the slot's edge, like in-game. */
-  outline: 2px solid rgba(150, 150, 150, 0.5);
-  outline-offset: -5px;
+  outline: var(--frame-width) solid var(--frame-line);
+  outline-offset: var(--frame-inset);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,7 +129,7 @@ watch(n, () => bump.value++)
   transition-duration: 0.06s;
 }
 .slot.owned {
-  outline-color: rgba(200, 200, 200, 0.75);
+  outline-color: var(--frame-line-strong);
 }
 .icon {
   width: 82%;

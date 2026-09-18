@@ -94,20 +94,22 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
   align-items: center;
   gap: 10px;
   border: none;
-  border-radius: 3px;
-  background: rgba(12, 12, 12, 0.62);
-  outline: 2px solid rgba(150, 150, 150, 0.35);
-  outline-offset: -4px;
+  border-radius: var(--frame-radius);
+  background: var(--frame-bg);
+  outline: var(--frame-width) solid var(--frame-line);
+  outline-offset: var(--frame-inset);
   color: rgba(255, 255, 255, 0.6);
   font-size: var(--fs-small);
   font-weight: 700;
   transition:
     color 0.15s,
-    outline-color 0.15s;
+    outline-color 0.15s,
+    box-shadow 0.2s;
 }
 .toggle.on {
   color: #fff;
-  outline-color: rgba(255, 255, 255, 0.9);
+  outline-color: var(--frame-line-on);
+  box-shadow: var(--frame-glow);
 }
 .box {
   width: 18px;
@@ -146,17 +148,18 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
   gap: 8px;
 }
 .step {
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 4px;
-  padding: 10px 12px;
+  background: var(--frame-bg);
+  border-radius: var(--frame-radius);
+  outline: var(--frame-width) solid var(--frame-line);
+  outline-offset: var(--frame-inset);
+  padding: 14px 16px;
   display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-areas: 'pic head head' 'pic ings cook' 'pic stats cook';
   gap: 6px 10px;
 }
 .step:first-child {
-  border-color: rgba(238, 235, 224, 0.6);
+  outline-color: var(--frame-line-strong);
 }
 .pic {
   grid-area: pic;
@@ -205,9 +208,10 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
   position: relative;
   width: max(34px, var(--slot) * 0.42);
   height: max(34px, var(--slot) * 0.42);
-  border: 1px solid rgba(190, 190, 190, 0.45);
-  border-radius: 3px;
-  background: rgba(14, 14, 14, 0.9);
+  border-radius: var(--frame-radius);
+  background: var(--frame-bg);
+  outline: var(--frame-width) solid var(--frame-line);
+  outline-offset: -3px; /* small slot: shallower inset */
 }
 .ing img {
   width: 100%;
@@ -247,15 +251,18 @@ const stepKey = (step: PlanStep) => step.dish.entries.map((e) => e.item.id + e.c
   align-self: center;
   min-height: 48px;
   padding: 0 20px;
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-radius: var(--frame-radius);
+  background: var(--frame-bg);
+  outline: var(--frame-width) solid var(--frame-line-strong);
+  outline-offset: var(--frame-inset);
   color: #fff;
   font-size: var(--fs-text);
   font-weight: 700;
 }
 .cook:active {
-  background: rgba(255, 255, 255, 0.2);
+  outline-color: var(--frame-line-on);
+  box-shadow: var(--frame-glow);
 }
 .hint {
   color: rgba(255, 255, 255, 0.6);

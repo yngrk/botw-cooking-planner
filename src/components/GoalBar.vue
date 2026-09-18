@@ -35,10 +35,10 @@ const s = state.settings
   aspect-ratio: 1;
   padding: 20%;
   border: none;
-  border-radius: 3px;
-  background: rgba(12, 12, 12, 0.62);
-  outline: 2px solid rgba(150, 150, 150, 0.35);
-  outline-offset: -4px;
+  border-radius: var(--frame-radius);
+  background: var(--frame-bg);
+  outline: var(--frame-width) solid var(--frame-line);
+  outline-offset: var(--frame-inset);
   display: grid;
   place-items: center;
   opacity: 0.55;
@@ -49,8 +49,8 @@ const s = state.settings
 }
 .goal.on {
   opacity: 1;
-  outline-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+  outline-color: var(--frame-line-on);
+  box-shadow: var(--frame-glow);
 }
 .goal :deep(.effect-icon) {
   width: 100%;

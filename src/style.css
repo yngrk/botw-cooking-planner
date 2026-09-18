@@ -22,6 +22,17 @@
   --accent: var(--glow);
   --on-accent: #1b1606;
 
+  /* The in-game slot frame, shared by every framed element: tiles, goal
+     buttons, toggles, recipe cards. Dark, slightly transparent, inset border. */
+  --frame-bg: rgba(12, 12, 12, 0.62);
+  --frame-line: rgba(150, 150, 150, 0.5);
+  --frame-line-strong: rgba(200, 200, 200, 0.75);
+  --frame-line-on: rgba(255, 255, 255, 0.9);
+  --frame-glow: 0 0 12px rgba(255, 255, 255, 0.35);
+  --frame-width: 2px;
+  --frame-inset: -5px;
+  --frame-radius: 3px;
+
   --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --safe-top: env(safe-area-inset-top);
   --safe-bottom: env(safe-area-inset-bottom);
