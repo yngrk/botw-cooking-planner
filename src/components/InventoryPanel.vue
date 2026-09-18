@@ -154,10 +154,10 @@ onBeforeUnmount(() => {
       :aria-label="resetArmed ? 'Tap again to clear all ingredients' : 'Clear all ingredients'"
       @click="onReset"
     >
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5" />
-      </svg>
-      <span>{{ resetArmed ? 'Reset?' : 'Reset' }}</span>
+      <span class="glyph" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M5 12a7 7 0 1 0 2.1-5M5 4.5v3.8h3.8" /></svg>
+      </span>
+      <span>{{ resetArmed ? 'Clear all?' : 'Reset' }}</span>
     </button>
     <!-- In-game page arrows: only shown when there is a page in that direction. -->
     <Transition name="arrow">
@@ -247,38 +247,62 @@ onBeforeUnmount(() => {
   align-content: start;
   height: calc(4 * var(--slot) + 3 * var(--gap));
 }
-/* Above the grid's top-right corner, in the space below the HUD. */
+/*
+ * Above the grid's top-right corner. Styled like the game's button prompts
+ * ("Ⓨ Sort"): a white round button glyph, then the action in white.
+ */
 .reset {
   position: absolute;
   bottom: calc(100% + 6px);
   right: calc(50% - var(--grid-w) / 2);
   min-height: 44px;
-  padding: 0 4px 0 12px;
+  padding: 0 2px 0 10px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   border: none;
   background: none;
   color: #f2f0e8;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-  transition:
-    color 0.15s,
-    opacity 0.2s;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  transition: opacity 0.2s;
 }
-.reset svg {
-  width: 20px;
-  height: 20px;
+.glyph {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f2f0e8;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  display: grid;
+  place-items: center;
+  transition: transform 0.28s var(--spring);
+}
+.glyph svg {
+  width: 18px;
+  height: 18px;
   fill: none;
-  stroke: currentColor;
-  stroke-width: 2.4;
+  stroke: #1b1b1b;
+  stroke-width: 2.6;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
 }
+.reset:active .glyph {
+  transform: scale(0.88);
+  transition-duration: 0.06s;
+}
+/* Armed: highlighted like a selected in-game prompt until the second tap. */
 .reset.armed {
-  color: #ff6b5e;
+  color: var(--gold);
+}
+.reset.armed .glyph {
+  background: var(--gold);
+  animation: armed 0.9s ease-in-out infinite;
+}
+@keyframes armed {
+  50% {
+    box-shadow: 0 0 12px rgba(243, 227, 166, 0.8);
+  }
 }
 .reset:disabled {
   opacity: 0.35;
